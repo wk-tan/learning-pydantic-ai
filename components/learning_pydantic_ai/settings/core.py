@@ -9,7 +9,7 @@ class Settings(BaseSettings):
         env_file_encoding="utf-8",
     )
 
-    anthropic_api_key: str
+    anthropic_api_key: str = ""
 
 
 settings = Settings()
