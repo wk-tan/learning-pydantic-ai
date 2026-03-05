@@ -1,0 +1,11 @@
+[tool.polylith]
+namespace = "learning_pydantic_ai"
+
+[tool.polylith.structure]
+theme = "loose"
+
+[tool.polylith.tag.patterns]
+release = "v[0-9]*"
+
+[tool.polylith.test]
+enabled = true

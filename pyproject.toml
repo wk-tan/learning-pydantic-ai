@@ -1,0 +1,93 @@
+[build-system]
+requires = ["hatchling", "hatch-polylith-bricks"]
+build-backend = "hatchling.build"
+
+[project]
+name = "learning-pydantic-ai"
+version = "0.1.0"
+description = "Add your description here"
+authors = [{ name = "Wai Kiat Tan", email = "wk.tan@outlook.com" }]
+readme = "README.md"
+requires-python = "~=3.13.0"
+dependencies = [
+    "pydantic-ai>=1.66.0",
+]
+
+[dependency-groups]
+dev = [
+    "polylith-cli>=1.40.0",
+    "pre-commit>=4.5.0",
+    "pyright>=1.1.407",
+    "ruff>=0.14.9",
+]
+release = [
+    "pulumi>=3.211.0",
+    "pulumi-docker>=4.10.0",
+    "pulumi-gcp>=9.6.0",
+    "python-semantic-release>=10.5.2",
+]
+test = ["pytest>=9.0.2", "pytest-cov>=7.0.0", "pytest-env>=1.2.0"]
+
+[tool.coverage.run]
+omit = ["*/__init__.py"]
+
+[tool.hatch.build]
+dev-mode-dirs = ["components", "bases", "development", "."]
+
+[tool.hatch.build.targets.wheel]
+packages = []
+
+[tool.hatch.build.hooks.polylith-bricks]
+enabled = true
+
+[tool.hatch.metadata]
+allow-direct-references = true
+
+[tool.polylith.bricks]
+
+[tool.pyright]
+pythonVersion = "3.13"
+typeCheckingMode = "standard"
+include = [
+    "bases",
+    "components",
+    "development",
+    "projects",
+]
+
+[tool.pytest.ini_options]
+addopts = "--tb=short -v"
+testpaths = ["test"]
+required_plugins = ["pytest-cov", "pytest-env"]
+env = [
+    "ENVIRONMENT = local",
+    "VERSION = 1.0.0",
+    "EPIC = test",
+    "COMPONENT = test",
+]
+
+[tool.ruff]
+line-length = 88
+target-version = "py313"
+
+[tool.ruff.format]
+quote-style = "double"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "N", "W", "UP"]
+
+[tool.ruff.lint.pydocstyle]
+convention = "google"
+
+[tool.semantic_release]
+version_variable = ["pyproject.toml:project.version"]
+version_toml = ["pyproject.toml:project.version"]
+branch = "main"
+upload_to_pypi = false
+upload_to_release = true
+
+[tool.uv]
+default-groups = "all"
+
+[tool.uv.workspace]
+members = ["projects/*"]
