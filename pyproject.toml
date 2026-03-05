@@ -11,6 +11,7 @@ readme = "README.md"
 requires-python = "~=3.13.0"
 dependencies = [
     "pydantic-ai>=1.66.0",
+    "pydantic-settings>=2.13.1",
 ]
 
 [dependency-groups]
@@ -26,7 +27,12 @@ release = [
     "pulumi-gcp>=9.6.0",
     "python-semantic-release>=10.5.2",
 ]
-test = ["pytest>=9.0.2", "pytest-cov>=7.0.0", "pytest-env>=1.2.0"]
+test = [
+    "anyio>=4.12.1",
+    "pytest>=9.0.2",
+ "pytest-cov>=7.0.0",
+ "pytest-env>=1.2.0",
+]
 
 [tool.coverage.run]
 omit = ["*/__init__.py"]

@@ -1108,6 +1108,7 @@ version = "0.1.0"
 source = { editable = "." }
 dependencies = [
     { name = "pydantic-ai" },
+    { name = "pydantic-settings" },
 ]
 
 [package.dev-dependencies]
@@ -1124,13 +1125,17 @@ release = [
     { name = "python-semantic-release" },
 ]
 test = [
+    { name = "anyio" },
     { name = "pytest" },
     { name = "pytest-cov" },
     { name = "pytest-env" },
 ]
 
 [package.metadata]
-requires-dist = [{ name = "pydantic-ai", specifier = ">=1.66.0" }]
+requires-dist = [
+    { name = "pydantic-ai", specifier = ">=1.66.0" },
+    { name = "pydantic-settings", specifier = ">=2.13.1" },
+]
 
 [package.metadata.requires-dev]
 dev = [
@@ -1146,6 +1151,7 @@ release = [
     { name = "python-semantic-release", specifier = ">=10.5.2" },
 ]
 test = [
+    { name = "anyio", specifier = ">=4.12.1" },
     { name = "pytest", specifier = ">=9.0.2" },
     { name = "pytest-cov", specifier = ">=7.0.0" },
     { name = "pytest-env", specifier = ">=1.2.0" },
