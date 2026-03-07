@@ -1107,6 +1107,7 @@ name = "learning-pydantic-ai"
 version = "0.1.0"
 source = { editable = "." }
 dependencies = [
+    { name = "logfire" },
     { name = "pydantic-ai" },
     { name = "pydantic-settings" },
 ]
@@ -1133,6 +1134,7 @@ test = [
 
 [package.metadata]
 requires-dist = [
+    { name = "logfire", specifier = ">=4.25.0" },
     { name = "pydantic-ai", specifier = ">=1.66.0" },
     { name = "pydantic-settings", specifier = ">=2.13.1" },
 ]

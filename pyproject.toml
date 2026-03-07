@@ -10,6 +10,7 @@ authors = [{ name = "Wai Kiat Tan", email = "wk.tan@outlook.com" }]
 readme = "README.md"
 requires-python = "~=3.13.0"
 dependencies = [
+    "logfire>=4.25.0",
     "pydantic-ai>=1.66.0",
     "pydantic-settings>=2.13.1",
 ]
